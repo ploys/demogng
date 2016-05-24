@@ -20,62 +20,47 @@
 // ========================================================================== ;
 
 /**
- * A class which represents the elements of the double linked list class
- *  ListGNG.
- *
+ * A class representing a site in the Voronoi diagram
  */
-class ListElem {
+class SiteVoronoi {
+    /**
+     * The coordinate
+     */
+    public FPoint coord = null;
+    /**
+     * The number of the site
+     */
+    public int sitenbr = 0;
+    /**
+     * The reference counter of the site
+     */
+    public int refcnt = 0;
 
-  /**
-   * The left neighbour.
-   */
-  ListElem		left;
-  /**
-   * The right neighbour.
-   */
-  ListElem		right;
-  /**
-   * The element is a halfedge.
-   */
-  HalfEdgeVoronoi	elem;
+    /**
+     * The constructor of the SiteVoronoi class.
+     */
+    public SiteVoronoi() {
+        coord = new FPoint();
+        sitenbr = -1;
+        refcnt = 0;
+    }
 
-  /**
-   * Constructor, initializes member data.
-   */
-  ListElem() {
-    left = null;
-    right = null;
-    elem = null;
-  }
+    /**
+     * The constructor of the SiteVoronoi class.
+     *
+     * @param p       The coordinates
+     * @param sitenbr The identifier of the site
+     */
+    public SiteVoronoi(FPoint p, int sitenbr) {
+        coord = p;
+        this.sitenbr = sitenbr;
+        refcnt = 0;
+    }
 
-  /**
-   * Constructor, allows setting data.
-   *
-   * @param HalfEdgeVoronoi elem 	The data elem
-   */
-  ListElem(HalfEdgeVoronoi elem) {
-    left = right = null;
-    this.elem = elem;
-  }
+    public void print() {
+        System.out.println("Site: (Nr. " + sitenbr + "):" +
+                coord.x + ", " + coord.y +
+                " (refcnt = " + refcnt + ")");
+    }
 
-  /**
-   * Constructor, allows setting neighbors and data.
-   *
-   * @param l 		Left neighbor
-   * @param r 		Right neighbor
-   * @param elem 	The data elem
-   */
-  ListElem(ListElem l, ListElem r, HalfEdgeVoronoi elem) {
-    left = l;
-    right = r;
-    this.elem = elem;
-  }
-
-  /**
-   * Print the element.
-   */
-  public void print() {
-    if(elem != null)
-      elem.print();
-  }
 }

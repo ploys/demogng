@@ -20,72 +20,38 @@
 // ========================================================================== ;
 
 /**
- * A class representing a float point in the plane.
- *
+ * A class representing a Voronoi line.
  */
-class FPoint {
-  /**
-   * The x coordinate
-   */
-  public float x;
-  /**
-   * The y coordinate
-   */
-  public float y;
+class LineGNG {
+    /**
+     * The first point (x) of the line
+     */
+    protected int x1 = -1;
+    /**
+     * The first point (y) of the line
+     */
+    protected int y1 = -1;
+    /**
+     * The last point (x) of the line
+     */
+    protected int x2 = -1;
+    /**
+     * The last point (y) of the line
+     */
+    protected int y2 = -1;
 
-  /**
-   * Constructor.
-   * 
-   */
-  public FPoint() {
-    this.x = -1.0f;
-    this.y = -1.0f;
-  }
-
-  /**
-   * Constructor, allows setting the coordinates.
-   * 
-   * @param x        The x coordinate
-   * @param y        The y coordinate
-   */
-  public FPoint(float x, float y) {
-    this.x = x;
-    this.y = y;
-  }
-
-  /**
-   * Set the member variables.
-   * 
-   * @param x        The x coordinate
-   * @param y        The y coordinate
-   */
-  public void set(float x, float y) {
-    this.x = x;
-    this.y = y;
-  }
-
-  /**
-   * Set the member variables.
-   * 
-   * @param p        The coordinates
-   */
-  public void set(FPoint p) {
-    x = p.x;
-    y = p.y;
-  }
-
-  /**
-   * Test the member variables.
-   * 
-   * @param x        The x coordinate
-   * @param y        The y coordinate
-   * @return	     Equal?
-   */
-  public boolean equal(float x, float y) {
-    if ( (this.x == x) && (this.y == y) )
-      return(true);
-    else
-      return(false);
-  }
-
+    /**
+     * Constructor, allows setting the coordinates.
+     *
+     * @param x1 The first x coordinate
+     * @param y1 The first y coordinate
+     * @param x2 The second x coordinate
+     * @param y2 The second y coordinate
+     */
+    public LineGNG(int x1, int y1, int x2, int y2) {
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+    }
 }

@@ -1,11 +1,3 @@
-import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Event;
-import java.awt.Frame;
-import java.awt.Label;
-import java.awt.Panel;
-import java.awt.TextField;
-
 // ========================================================================== ;
 //                                                                            ;
 // Copyright 1996-1998 Hartmut S. Loos, Instit. f. Neuroinformatik, Bochum    ;
@@ -29,51 +21,32 @@ import java.awt.TextField;
 
 
 /**
- * A class implementing the error graph.
- *
+ * @author B. Fritzke
+ *         enum for all probability distributions
  */
-class GraphGNG extends Frame {
-  /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-DemoGNG demo;
-  SelGraphics graph;
-  TextField error;
+public enum PD {
+    Rectangle("Rectangle"),
+    Circle("Circle"),
+    TwoCircles("Two Circles"),
+    Ring("Ring"),
+    UNI("UNI"),
+    SmallSpirals("Small Spirals"),
+    LargeSpirals("Large Spirals"),
+    HiLoDensity("HiLo Density"),
+    DiscreteMixture("DiscreteMixture"),
+    UNIT("UNIT"),
+    MoveJump("Move & Jump"),
+    Move("Move"),
+    Jump("Jump"),
+    RightMouseB("Right Mouse-Btn");
+    private String name;
 
-  /**
-   * The name of the clear button.
-   */
-  protected final static String CLEAR = "Clear";
-  /**
-   * The name of the close button.
-   */
-  protected final static String CLOSE = "Close";
+    public String getName() {
+        return name;
+    }
 
-  GraphGNG(DemoGNG demo) {
-	this.demo = demo;
-	graph = new SelGraphics();
-	setTitle("ErrorGraph");
-
-	setLayout(new BorderLayout());
-	add("North",new Label("  Error Graph"));
-	add("Center",graph);
-	Panel pSouth = new Panel();
-	pSouth.add(new Button(CLEAR));
-	pSouth.add(new Button(CLOSE));
-	add("South", pSouth);
-	pack();
-  }
-
-  public boolean handleEvent(Event evt) {
-	if (CLEAR.equals(evt.arg)) {
-	  graph.clear();
-	  return true;
-	} else if (CLOSE.equals(evt.arg)) {
-	  demo.graphClose();
-	  return true;
-	}
-	return super.handleEvent(evt);
-  }
+    private PD(String name) {
+        this.name = name;
+    }
 
 }

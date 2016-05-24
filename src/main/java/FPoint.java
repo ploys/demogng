@@ -20,48 +20,70 @@
 // ========================================================================== ;
 
 /**
- * A class representing a site in the Voronoi diagram
- *
+ * A class representing a float point in the plane.
  */
-class SiteVoronoi {
-  /**
-   * The coordinate
-   */
-  public FPoint coord = null;
-  /**
-   * The number of the site
-   */
-  public int sitenbr = 0;
-  /**
-   * The reference counter of the site
-   */
-  public int refcnt = 0;
+class FPoint {
+    /**
+     * The x coordinate
+     */
+    public float x;
+    /**
+     * The y coordinate
+     */
+    public float y;
 
-  /**
-   * The constructor of the SiteVoronoi class.
-   * 
-   */
-  public SiteVoronoi() {
-    coord = new FPoint();
-    sitenbr = -1;
-    refcnt = 0;
-  }
-  /**
-   * The constructor of the SiteVoronoi class.
-   * 
-   * @param p        The coordinates
-   * @param sitenbr  The identifier of the site
-   */
-  public SiteVoronoi(FPoint p, int sitenbr) {
-    coord = p;
-    this.sitenbr = sitenbr;
-    refcnt = 0;
-  }
+    /**
+     * Constructor.
+     */
+    public FPoint() {
+        this.x = -1.0f;
+        this.y = -1.0f;
+    }
 
-  public void print() {
-    System.out.println("Site: (Nr. " + sitenbr + "):" + 
-		       coord.x + ", " + coord.y +
-		       " (refcnt = " + refcnt + ")");
-  }
+    /**
+     * Constructor, allows setting the coordinates.
+     *
+     * @param x The x coordinate
+     * @param y The y coordinate
+     */
+    public FPoint(float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    /**
+     * Set the member variables.
+     *
+     * @param x The x coordinate
+     * @param y The y coordinate
+     */
+    public void set(float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    /**
+     * Set the member variables.
+     *
+     * @param p The coordinates
+     */
+    public void set(FPoint p) {
+        x = p.x;
+        y = p.y;
+    }
+
+    /**
+     * Test the member variables.
+     *
+     * @param x The x coordinate
+     * @param y The y coordinate
+     * @return Equal?
+     */
+    public boolean equal(float x, float y) {
+        if ((this.x == x) && (this.y == y))
+            return (true);
+        else
+            return (false);
+    }
 
 }
